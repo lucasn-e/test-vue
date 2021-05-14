@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "file-loader": "^6.2.0",
     "pspdfkit": "^2021.3.0",
     "vue": "^2.6.11"
   },
