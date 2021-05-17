@@ -4,7 +4,7 @@
 
 <script>
 import PSPDFKit from "pspdfkit";
-const licenseKey = "YOUR_LICENSE_KEY_GOES_HERE";
+const licenseKey = "YOUR_LICENSE_KEY_HERE";
 
 export default {
   props: {
@@ -13,8 +13,16 @@ export default {
       required: true,
     },
   },
+  watch: {
+    pdfFile(val) {
+      if (val) {
+        this.loadPSPDFKit();
+      }
+    },
+  },
   methods: {
     async loadPSPDFKit() {
+      PSPDFKit.unload(".pdf-container");
       return PSPDFKit.load({
         // import the PDF File from properties
         document: this.pdfFile,

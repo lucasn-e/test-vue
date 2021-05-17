@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <input type="file" @change="openDocument" />
     <PSPDFKitContainer :pdfFile="pdfFile" @loaded="handleLoaded" />
   </div>
 </template>
@@ -10,7 +11,7 @@ import PSPDFKitContainer from "@/components/PSPDFKitContainer";
 export default {
   data() {
     return {
-      pdfFile: "/dummy.pdf",
+      pdfFile: this.pdfFile || "/dummy.pdf",
     };
   },
   components: {
@@ -20,6 +21,12 @@ export default {
     handleLoaded(instance) {
       console.log("PSPDFKit has loaded: ", instance);
       // do something
+    },
+    openDocument() {
+      if (this.pdfFile) {
+        window.URL.revokeObjectURL(this.pdfFile);
+      }
+      this.pdfFile = window.URL.createObjectURL(event.target.files[0]);
     },
   },
 };
