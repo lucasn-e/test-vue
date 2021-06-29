@@ -5,8 +5,7 @@ This example shows how to integrate [PSPDFKit for Web](https://pspdfkit.com/web/
 ## Prerequisites
 
 - [Node.js](http://nodejs.org/)
-- A PSPDFKit for Web license. If you don't already have one
-  you can [request a free trial here](https://pspdfkit.com/try/).
+- PSPDFKit for Web (get your free trial [here](https://pspdfkit.com/try/))
 
 ## Support, Issues and License Questions
 
@@ -29,9 +28,11 @@ Install the project dependencies with `npm`:
 npm install
 ```
 
-Now that everything is installed we need to configure the app to use our [PSPDFKit for Web license key](https://pspdfkit.com/guides/web/current/standalone/integration).
+## Vue Component
 
-Edit `./src/components/PSPDFKitContainer.vue` and replace the string `YOUR_LICENSE_KEY_GOES_HERE` with the license key that you received via e-mail.
+The Vue component which implements the PSPDFKit for Web integration is included at `src/App.vue` with the rest of the example.
+
+In order to make the PSPDFKit for Web's library available for building, we have to copy the `pspdfkit-lib/` directory from `node_modules/pspdfkit/dist/` into the `public/js/` directory. This is done in the `package.json` script `verify-installation` which is executed by `serve`.
 
 ## Running the Example
 
@@ -42,12 +43,6 @@ npm run serve
 ```
 
 You can now open http://localhost:8080 in your browser and enjoy!
-
-## Vue Component
-
-The Vue component which implements the PSPDFKit for Web integration is included at `src/App.vue` with the rest of the example.
-
-In order to make the files above available we have to copy the `pspdfkit-lib/` directory from `node_modules/pspdfkit/dist/` into the `public/js/` directory.
 
 ## License
 

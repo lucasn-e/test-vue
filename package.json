@@ -1,15 +1,31 @@
 {
-  "name": "test",
-  "version": "0.1.0",
-  "private": true,
+  "name": "pspdfkit-web-example-vue",
+  "version": "2021.4.2",
+  "description": "Standalone and offline PDF viewer web application built with PSPDFKit for Web and Vue",
+  "keywords": [
+    "wasm",
+    "web",
+    "assembly",
+    "pdf",
+    "viewer",
+    "vue",
+    "asm.js",
+    "offline",
+    "indexeddb"
+  ],
+  "author": "PSPDFKit (https://pspdfkit.com)",
+  "homepage": "https://pspdfkit.com/web",
+  "license": "SEE LICENSE IN https://pspdfkit.com/legal/License.pdf",
+  "readme": "https://pspdfkit.com/guides/web",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "verify-installation": "mkdir -p public/js && node scripts/verify-install.js && node scripts/copy-pspdfkit-files.js",
+    "serve": "npm run verify-installation && vue-cli-service serve",
+    "build": "npm run verify-installation && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "pspdfkit": "^2021.3.0",
+    "pspdfkit": "^2021.4.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -18,7 +34,8 @@
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^7.9.0",
+    "ncp": "^2.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -36,8 +53,14 @@
     "rules": {}
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
+    "Firefox ESR",
+    "IE 11",
+    "edge 18",
+    "last 2 Chrome versions",
+    "last 2 firefox versions",
+    "last 2 edge versions",
+    "last 2 safari versions",
+    "last 2 and_chr versions",
+    "last 2 ios_saf versions"
   ]
 }
